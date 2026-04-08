@@ -1,0 +1,198 @@
+:root {
+  --cor-primaria: #FFC080;
+  --cor-acento: #8B9467;
+  --cor-neutro-1: #F7F7F7;
+  --cor-neutro-2: #E5E5E5;
+  --cor-fundo: #FFFFFF;
+  --fonte-display: 'Playfair Display', serif;
+  --fonte-body: 'Open Sans', sans-serif;
+  --espaçamento-padrao: 16px;
+  --espaçamento-negativo: -16px;
+  --radios: 8px;
+  --transições: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte-body);
+  background-color: var(--cor-fundo);
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+.section {
+  background-color: var(--cor-neutro-1);
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  background-color: var(--cor-acento);
+  color: #FFFFFF;
+  border: none;
+  padding: 1em 2em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all var(--transições);
+}
+
+.btn:hover {
+  background-color: var(--cor-primaria);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary {
+  background-color: #333;
+  color: #FFFFFF;
+  border: none;
+  padding: 1em 2em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all var(--transições);
+}
+
+.btn-primary:hover {
+  background-color: var(--cor-primaria);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1px solid var(--cor-acento);
+  padding: 1em 2em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all var(--transições);
+}
+
+.btn-outline:hover {
+  background-color: var(--cor-primaria);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+}
+
+.badge {
+  background-color: #333;
+  color: #FFFFFF;
+  padding: 0.5em 1em;
+  border-radius: 50%;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all var(--transições);
+}
+
+.badge:hover {
+  background-color: var(--cor-primaria);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+}
+
+.glass {
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--cor-primaria);
+  opacity: 0.5;
+  transition: all var(--transições);
+}
+
+.glass:hover::before {
+  opacity: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(10%);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all var(--transições);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .section {
+    padding: 1em;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
