@@ -1,0 +1,36 @@
+<?php
+
+$nomeArquivo = 'tom_escuro.jpg';
+$tipoArquivo = 'image/jpeg';
+
+function gerarImagem($nomeArquivo, $tipoArquivo) {
+  // Configuração da imagem
+  $largura = 800;
+  $altura = 600;
+
+  // Criação do arquivo
+  $arquivo = fopen($nomeArquivo, $tipoArquivo);
+  if ($arquivo === false) {
+    die('Erro ao criar o arquivo');
+  }
+
+  // Desenho da imagem
+  $imagem = imagecreatetruecolor($largura, $altura);
+  if (!$imagem) {
+    die('Erro ao criar a imagem');
+  }
+  $corFundo = imagecolorallocate($imagem, 255, 255, 255);
+  imagefill($imagem, 0, 0, $corFundo);
+
+  // Desenho do tom escuro
+  $corTomEscuro = imagecolorallocate($imagem, 50, 50, 50);
+  imageline($imagem, $largura / 2, 0, $largura / 2, $altura, $corTomEscuro);
+
+  // Salvar a imagem
+  imagepng($imagem, $nomeArquivo);
+  fclose($arquivo);
+}
+
+gerarImagem($nomeArquivo, $tipoArquivo);
+
+?>
